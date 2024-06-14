@@ -1,0 +1,99 @@
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+}
+
+/* regole generali */
+
+body {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 0;
+    background-color: #011627;
+    
+}
+
+/* SEZIONE HEADER */
+
+header {
+    width: 100%;
+    text-align: center;
+    background-color: #f8f8f8;
+    padding: 20px 0;
+    margin-bottom: 20px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+header h1 {
+    margin: 0;
+    font-size: 24px;
+    font-weight: normal;
+}
+
+/* INIZIO SEZIONE MAIN  */
+
+.game-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 60%;
+    margin-bottom: 20px;
+   
+    
+}
+
+.playButton {
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+/* regole generali select difficoltà */
+.difficulty{
+    margin-left: 5px;
+    padding: 10px 20px;
+    font-size: 16px;
+    
+}
+
+/* regole container griglia */
+
+#grid-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    width: 90%;
+    height: 500px;
+    margin-top: 20px;
+    
+}
+
+/* classe hidden per la visualizzazione della griglia dopo il click sul bottone */
+.hidden {
+    display: none;
+}
+
+/* regole celle  */
+
+.cell {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+    /* debug */
+    border: 2px solid #fff;
+    background-color: #011627;
+    cursor: pointer;
+    color: white;
+}
+
+
+/*  style delle celle al momento del'event click */
+.cell.clicked {
+    background-color: #7FFFD4;
+}
