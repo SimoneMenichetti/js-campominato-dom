@@ -72,7 +72,7 @@ function generateBombs(totalCells) {
         if (!arraybombs.includes(bomb)) {
             arraybombs.push(bomb);
         }
-        console.log(arraybombs);
+        console.log('i numeri random da 1/16 inseriti nell array come bombe sono :',arraybombs);
     }
 
         // inseriamo return per far ritornare il valore delle bombe
@@ -80,9 +80,10 @@ function generateBombs(totalCells) {
 }
 
 
+  
         // ora definiamo un ciclo for per generare le colonne e righe gia determinate in precedenza 
 
-
+        // inserito riferimento arrayboms per i numeri bomba generati x le celle
         const arraybombs = generateBombs(totalCells);
 
         for (let i = 1; i <= totalCells; i++) {
@@ -103,18 +104,35 @@ function generateBombs(totalCells) {
 
             // Aggiungi un event listener per il clic sulla cella
 
-            cell.addEventListener('click',
-                function() {
-                    if (arraybombs.includes(i)) {
-                        cell.classList.add('bomb');
-                        console.log('Ops hai trovato una bomba:', i );
-                        // verifica console cella cliccata
-                        console.log('Numero Cella cliccata:', i);
-                    }else {
-                        cell.classList.add('clicked');
-                        console.log('Cella cliccata:', i );
-                    }
+                // se il numero è presente nella lista dei numeri generati - abbiamo calpestato una bomba -e la cella si colora di rosso e la partita termina.
 
+                // Altrimenti la cella cliccata si colora di azzurro 
+                // e l’utente può continuare a cliccare sulle altre celle.
+
+            cell.addEventListener('click',
+                // utilizzo  event target per il controllo e l'identificazione della cella ove avviene il click
+                function cellClick(event) {
+
+                    // Il closest()metodo dell'interfaccia Elementattraversa l'elemento e i suoi genitori (dirigendosi verso la radice del documento) finché non trova un nodo che corrisponde al selettore CSS specificato .
+                    
+                    const cell = event.target.closest('.cell'); 
+                    // controllo se cell non viene trovato ritorno e chiudo
+                    if (!cell) return; 
+                
+                    // trasformo il valore in numero con parseint
+                    const cellNumber = parseInt(cell.textContent);
+                
+                    if (arraybombs.includes(cellNumber)) {
+                        cell.classList.add('bomb');
+                        console.log('Hai cliccato su una bomba:', cellNumber);
+                
+                        // Logica per terminare la partita
+                        cell.removeEventListener('click', cellClick);
+                        alert('Hai perso! Hai cliccato su una bomba.');
+                    } else {
+                        cell.classList.add('clicked');
+                        console.log('Cella cliccata:', cellNumber);
+                    }
                 }
             );
                     // stampiamo appendendo alle celle all'interno del grid container
