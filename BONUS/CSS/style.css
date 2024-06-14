@@ -97,3 +97,8 @@ header h1 {
 .cell.clicked {
     background-color: #7FFFD4;
 }
+/* style bombe */
+.cell.bomb {
+    background-color: red;
+    color: white;
+}

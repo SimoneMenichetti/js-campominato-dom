@@ -1,5 +1,4 @@
 
-
     //Definiamo la Funzione per generare le celle a seconda della difficoltà
 
     function generateGamegrid(difficultyLevel) {
@@ -44,7 +43,46 @@
         const cellWidth = `calc(100% / ${ columns})`;
         const cellHeight = `calc(100% / ${rows})`;
 
+
+
+        // 1 * 
+// Il computer deve generare 16 numeri casuali nello stesso range della difficoltà prescelta: le bombe.
+
+// definiamo la funzione  per generare i numeri casuali "bombe"
+function generateBombs(totalCells) {
+    // creazione riferimento array per inserire i numeri generati per poi inserire le "bombe"
+    const arraybombs = [];
+
+    // inizializiamo un ciclo con while 
+    while (arraybombs.length < 16) {
+
+        // utilizziamo mathflor per la generazione di un numero random (1,16) per il numero delle celle 
+        const bomb = Math.floor(Math.random() * totalCells) + 1;
+
+
+                                          //    2*parte della  
+                                        //   {consegna 1*} read txt // 
+
+        //   Attenzione: nella stessa cella può essere posizionata al massimo una bomba, perciò nell’array delle bombe non potranno esserci due numeri uguali.
+
+
+        // utilizzo di una condizione per il controllo dei numeri generati per la quale 
+            // se il numero e diverso da quello nella lista viene inserito oppure continua
+
+        if (!arraybombs.includes(bomb)) {
+            arraybombs.push(bomb);
+        }
+    }
+
+    // inseriamo return per far ritornare il valore delle bombe
+    return arraybombs;
+}
+
+
         // ora definiamo un ciclo for per generare le colonne e righe gia determinate in precedenza 
+
+
+
 
         for (let i = 1; i <= totalCells; i++) {
             // creazione elemento div per le celle
@@ -56,6 +94,11 @@
             // Applica dimensioni personalizzate alle celle
             cell.style.width = cellWidth;
             cell.style.height = cellHeight;
+
+                                      // consegna 2 read txt
+
+
+            // creazione in aggiunta di un eventlistener al click di una bomba o non
 
             // Aggiungi un event listener per il clic sulla cella
 
