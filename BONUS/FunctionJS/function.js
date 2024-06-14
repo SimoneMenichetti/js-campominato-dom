@@ -43,7 +43,7 @@
         const cellWidth = `calc(100% / ${ columns})`;
         const cellHeight = `calc(100% / ${rows})`;
 
-
+                                    // BONUS
 
         // 1 * 
 // Il computer deve generare 16 numeri casuali nello stesso range della difficoltà prescelta: le bombe.
@@ -74,22 +74,22 @@ function generateBombs(totalCells) {
         }
     }
 
-    // inseriamo return per far ritornare il valore delle bombe
-    return arraybombs;
+        // inseriamo return per far ritornare il valore delle bombe
+        return arraybombs;
 }
 
 
         // ora definiamo un ciclo for per generare le colonne e righe gia determinate in precedenza 
 
 
-
+        const arraybombs = generateBombs(totalCells);
 
         for (let i = 1; i <= totalCells; i++) {
             // creazione elemento div per le celle
             const cell = document.createElement('div');
             // aggiungiamo la classe cella ad ogni singolo elemento creato in questo caso i div
             cell.classList.add('cell');
-            cell.textContent =  i;
+            cell.textContent = i ;
 
             // Applica dimensioni personalizzate alle celle
             cell.style.width = cellWidth;
@@ -104,10 +104,16 @@ function generateBombs(totalCells) {
 
             cell.addEventListener('click',
                 function() {
-                    //  aggiungiamo il toggle al clicked per le celle in modo tale da poterle ri cliccare e deselezionare nuovamente il colore
-                    cell.classList.toggle('clicked');
-                    // verifica console cella cliccata
-                    console.log('Numero Cella cliccata:', i);
+                    if (arraybombs.includes(i + 1)) {
+                        cell.classList.add('bomb');
+                        console.log('Ops hai trovato una bomba:', i + 1);
+                        // verifica console cella cliccata
+                        console.log('Numero Cella cliccata:', i);
+                    }else {
+                        cell.classList.add('clicked');
+                        console.log('Cella cliccata:', i + 1);
+                    }
+
                 }
             );
                     // stampiamo appendendo alle celle all'interno del grid container
