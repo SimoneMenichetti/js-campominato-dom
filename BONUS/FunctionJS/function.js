@@ -72,6 +72,7 @@ function generateBombs(totalCells) {
         if (!arraybombs.includes(bomb)) {
             arraybombs.push(bomb);
         }
+        console.log(arraybombs);
     }
 
         // inseriamo return per far ritornare il valore delle bombe
@@ -104,14 +105,14 @@ function generateBombs(totalCells) {
 
             cell.addEventListener('click',
                 function() {
-                    if (arraybombs.includes(i + 1)) {
+                    if (arraybombs.includes(i)) {
                         cell.classList.add('bomb');
-                        console.log('Ops hai trovato una bomba:', i + 1);
+                        console.log('Ops hai trovato una bomba:', i );
                         // verifica console cella cliccata
                         console.log('Numero Cella cliccata:', i);
                     }else {
                         cell.classList.add('clicked');
-                        console.log('Cella cliccata:', i + 1);
+                        console.log('Cella cliccata:', i );
                     }
 
                 }
