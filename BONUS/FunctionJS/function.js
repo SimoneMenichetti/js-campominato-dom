@@ -125,13 +125,19 @@ function generateBombs(totalCells) {
                     if (arraybombs.includes(cellNumber)) {
                         cell.classList.add('bomb');
                         console.log('Hai cliccato su una bomba:', cellNumber);
+                       
                 
                         // Logica per terminare la partita
                         cell.removeEventListener('click', cellClick);
                         alert('Hai perso! Hai cliccato su una bomba.');
+                        // score finale
+                        console.log('il tuo score è', score );
+
                     } else {
                         cell.classList.add('clicked');
                         console.log('Cella cliccata:', cellNumber);
+                        // incremento punteggio 
+                        score++;
                     }
                 }
             );

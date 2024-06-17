@@ -6,7 +6,7 @@ const playButton = document.querySelector('.playButton');
 // Variabile di riferimento per richiamare il container della griglia
 const gridContainer = document.getElementById('grid-container');
 
-
+let score = 0;
 
 
                 // BONUS
